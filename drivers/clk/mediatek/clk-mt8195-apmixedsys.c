@@ -18,6 +18,14 @@ static const struct mtk_gate_regs apmixed_cg_regs = {
 	.sta_ofs = 0x8,
 };
 
+#define GATE_APMIXED(_id, _parent, _shift)			\
+	GATE_MTK_FLAGS(_id, _parent, &apmixed_cg_regs, _shift, \
+		CLK_GATE_NO_SETCLR_INV)
+
+static const struct mtk_gate apmixed_clks[] = {
+	GATE_APMIXED(CLK_APMIXED_PLL_SSUSB26M, CLK_TOP_CLK26M, 1),
+};
+
 #define MT8195_PLL_FMAX		(3800UL * MHZ)
 #define MT8195_PLL_FMIN		(1500UL * MHZ)
 #define MT8195_INTEGER_BITS	8
@@ -99,8 +107,18 @@ static int mt8195_apmixedsys_probe(struct udevice *dev)
 	return mtk_common_clk_init(dev, &mt8195_clk_tree);
 }
 
+static int mt8195_apmixedsys_cg_probe(struct udevice *dev)
+{
+	return mtk_common_clk_gate_init(dev, &mt8195_clk_tree, apmixed_clks);
+}
+
 static const struct udevice_id mt8195_apmixed[] = {
 	{ .compatible = "mediatek,mt8195-apmixedsys", },
+	{ }
+};
+
+static const struct udevice_id mt8195_apmixed_cg[] = {
+	{ .compatible = "mediatek,mt8195-apmixedsys-cg", },
 	{ }
 };
 
@@ -111,5 +129,15 @@ U_BOOT_DRIVER(mtk_clk_apmixedsys) = {
 	.probe = mt8195_apmixedsys_probe,
 	.priv_auto = sizeof(struct mtk_clk_priv),
 	.ops = &mtk_clk_apmixedsys_ops,
+	.flags = DM_FLAG_PRE_RELOC,
+};
+
+U_BOOT_DRIVER(mtk_clk_apmixedsys_cg) = {
+	.name = "mt8195-apmixedsys-cg",
+	.id = UCLASS_CLK,
+	.of_match = mt8195_apmixed_cg,
+	.probe = mt8195_apmixedsys_cg_probe,
+	.priv_auto = sizeof(struct mtk_clk_priv),
+	.ops = &mtk_clk_gate_ops,
 	.flags = DM_FLAG_PRE_RELOC,
 };
