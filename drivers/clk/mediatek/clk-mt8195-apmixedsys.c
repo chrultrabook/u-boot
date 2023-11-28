@@ -18,14 +18,6 @@ static const struct mtk_gate_regs apmixed_cg_regs = {
 	.sta_ofs = 0x8,
 };
 
-#define GATE_APMIXED(_id, _parent, _shift)			\
-	GATE_MTK_FLAGS(_id, _parent, &apmixed_cg_regs, _shift, \
-		CLK_GATE_NO_SETCLR_INV | CLK_PARENT_TOPCKGEN)
-
-static const struct mtk_gate apmixed_clks[] = {
-	GATE_APMIXED(CLK_APMIXED_PLL_SSUSB26M, CLK_TOP_CLK26M, 1),
-};
-
 #define MT8195_PLL_FMAX		(3800UL * MHZ)
 #define MT8195_PLL_FMIN		(1500UL * MHZ)
 #define MT8195_INTEGER_BITS	8
@@ -104,11 +96,7 @@ const struct mtk_pll_data apmixed_plls[] = {
 extern const struct mtk_clk_tree mt8195_clk_tree;
 static int mt8195_apmixedsys_probe(struct udevice *dev)
 {
-	if (mtk_common_clk_init(dev, &mt8195_clk_tree))
-		return -ENOENT;
-
-	mtk_common_clk_gate_init(dev, &mt8195_clk_tree, apmixed_clks);
-	return 0;
+	return mtk_common_clk_init(dev, &mt8195_clk_tree);
 }
 
 static const struct udevice_id mt8195_apmixed[] = {
