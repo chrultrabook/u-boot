@@ -4,6 +4,7 @@ config SYS_SOC
 	default "mediatek"
 
 config SYS_VENDOR
+	default "google" if CHROMEBOOK_KUKUI
 	default "mediatek"
 
 config MT8512
@@ -114,8 +115,16 @@ config TARGET_MT8518
 
 endchoice
 
+config CHROMEBOOK_KUKUI
+        depends on TARGET_MT8183
+        bool "Google Kukui Chromebook"
+        select LINUX_KERNEL_IMAGE_HEADER
+        help
+          Enables options needed for the kukui chromebook
+
 config SYS_BOARD
 	string "Board name"
+	default "kukui" if CHROMEBOOK_KUKUI
 	default "mt7622" if TARGET_MT7622
 	default "mt7623" if TARGET_MT7623
 	default "mt7629" if TARGET_MT7629
@@ -133,6 +142,7 @@ config SYS_BOARD
 	  be used.
 
 config SYS_CONFIG_NAME
+	default "kukui" if CHROMEBOOK_KUKUI
 	default "mt7622" if TARGET_MT7622
 	default "mt7623" if TARGET_MT7623
 	default "mt7629" if TARGET_MT7629
@@ -153,3 +163,6 @@ config MTK_BROM_HEADER_INFO
 	default "lk=1" if TARGET_MT7623
 
 endif
+
+config LNX_KRNL_IMG_TEXT_OFFSET_BASE
+        default TEXT_BASE if CHROMEBOOK_KUKUI
