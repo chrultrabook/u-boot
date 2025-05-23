@@ -8,6 +8,7 @@
  * Wolfgang Denk, DENX Software Engineering, wd@denx.de.
  */
 
+#include <cb_sysinfo.h>
 #include <command.h>
 #include <fdt_support.h>
 #include <fdtdec.h>
@@ -636,6 +637,9 @@ int image_setup_libfdt(struct bootm_headers *images, void *blob, bool lmb)
 #if IS_ENABLED(CONFIG_CMD_PSTORE)
 	/* Append PStore configuration */
 	fdt_fixup_pstore(blob);
+#endif
+#if CONFIG_IS_ENABLED(SYS_COREBOOT)
+	fdt_fixup_coreboot(blob);
 #endif
 	if (IS_ENABLED(CONFIG_OF_BOARD_SETUP)) {
 		skip_board_fixup = (env_get_ulong("skip_board_fixup", 10, 0) == 1);
