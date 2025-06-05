@@ -1073,6 +1073,18 @@ config ARCH_APPLE
 	imply BOOTSTD_FULL
 	imply OF_HAS_PRIOR_STAGE
 
+config ARCH_COREBOOT
+	bool "Coreboot Payload"
+	select DM
+	select DM_SERIAL
+	select DM_RESET
+	select OF_CONTROL
+	select POSITION_INDEPENDENT
+	select POWER_DOMAIN
+	select VIDEO_COREBOOT
+	select PCI
+	imply CMD_DM
+
 config ARCH_OWL
 	bool "Actions Semi OWL SoCs"
 	select DM
@@ -2286,6 +2298,8 @@ source "arch/arm/mach-bcm283x/Kconfig"
 source "arch/arm/mach-bcmbca/Kconfig"
 
 source "arch/arm/mach-bcmstb/Kconfig"
+
+source "arch/arm/mach-coreboot/Kconfig"
 
 source "arch/arm/mach-davinci/Kconfig"
 
