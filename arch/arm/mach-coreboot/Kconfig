@@ -1,0 +1,27 @@
+if ARCH_COREBOOT
+
+config SYS_SOC
+	default "coreboot"
+
+config SYS_VENDOR
+	default "coreboot"
+
+config SYS_BOARD
+	default "coreboot-arm"
+
+config SYS_CONFIG_NAME
+	default "coreboot-arm"
+
+choice
+	prompt "coreboot ARM architecture"
+	default TARGET_COREBOOT_ARM_64BIT
+
+config TARGET_COREBOOT_ARM_64BIT
+	bool "Coreboot payload on ARMv8, 64bit"
+	select ARM64
+	select ARCH_CPU_INIT
+	select BOARD_LATE_INIT
+
+endchoice
+
+endif
