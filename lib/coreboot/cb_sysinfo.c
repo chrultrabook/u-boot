@@ -470,7 +470,7 @@ long detect_coreboot_table_at(ulong start, ulong size)
 
 	size /= 4;
 	for (ptr = (void *)start, end = ptr + size; ptr < end; ptr += 4) {
-		if (*ptr == 0x4f49424c) /* "LBIO" */
+		if ((*ptr == 0x4f49424c) && (cb_parse_header((void *)ptr, 0x1000, &lib_sysinfo) == 1)) /* "LBIO" */
 			return (long)ptr;
 	}
 
