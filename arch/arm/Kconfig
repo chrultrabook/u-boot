@@ -1066,13 +1066,9 @@ config ARCH_COREBOOT
 	select OF_CONTROL
 	select POSITION_INDEPENDENT
 	select POWER_DOMAIN
-	select PL01X_SERIAL
 	select VIDEO_COREBOOT
 	select PCI
 	imply CMD_DM
-	imply DM_RNG
-	imply DM_RTC
-	imply RTC_PL031
 
 config ARCH_OWL
 	bool "Actions Semi OWL SoCs"
