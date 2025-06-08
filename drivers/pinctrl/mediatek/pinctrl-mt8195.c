@@ -941,7 +941,7 @@ static const struct mtk_pin_desc mt8195_pins[] = {
 static const struct mtk_io_type_desc mt8195_io_type_desc[] = {
 	[IO_TYPE_GRP0] = {
 		.name = "mt8195",
-		.bias_set = mtk_pinconf_bias_set_combo,
+		.bias_set = mtk_pinconf_bias_set_v1,
 		.drive_set = mtk_pinconf_drive_set_v1,
 		.input_enable = mtk_pinconf_input_enable_v1,
 	},
