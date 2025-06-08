@@ -782,7 +782,7 @@ static void initcall_run_r(void)
 	INITCALL(initr_post);
 #endif
 	WATCHDOG_RESET();
-	INITCALL_EVT(EVT_LAST_STAGE_INIT);
+//	INITCALL_EVT(EVT_LAST_STAGE_INIT);
 #if defined(CFG_PRAM)
 	INITCALL(initr_mem);
 #endif
