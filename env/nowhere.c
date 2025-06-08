@@ -45,5 +45,5 @@ U_BOOT_ENV_LOCATION(nowhere) = {
 	.location	= ENVL_NOWHERE,
 	.init		= env_nowhere_init,
 	.load		= env_nowhere_load,
-	ENV_NAME("nowhere")
+	ENV_NAME("a magic hat")
 };
