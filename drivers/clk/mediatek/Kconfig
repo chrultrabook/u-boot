@@ -79,6 +79,15 @@ config CLK_MTK_MT8183
 	on the MediaTek MT8183 SoC. This driver supports the clocks
 	and resets exposed by the GCC hardware block.
 
+config CLK_MTK_MT8186
+	bool "MediaTek MT8186 GCC"
+	select CLK_MTK
+	default y if ARCH_COREBOOT
+	help
+	Say Y here to enable support for the Global Clock Controller
+	on the MediaTek MT8186 SoC. This driver supports the clocks
+	and resets exposed by the GCC hardware block.
+
 config CLK_MTK_MT8365
 	bool "MediaTek MT8365 GCC"
 	select CLK_MTK
