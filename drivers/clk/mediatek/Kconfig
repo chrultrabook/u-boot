@@ -1,0 +1,119 @@
+if ARCH_MEDIATEK || ARCH_COREBOOT
+
+config CLK_MTK
+	bool
+	depends on CLK && DM_RESET && POWER_DOMAIN
+	def_bool n
+
+menu "MediaTek clock drivers"
+
+config CLK_MTK_MT7622
+	bool "MediaTek MT7622 GCC"
+	select CLK_MTK
+	default y if CONFIG_TARGET_MT7622
+	help
+	Say Y here to enable support for the Global Clock Controller
+	on the MediaTek MT7622 SoC. This driver supports the clocks
+	and resets exposed by the GCC hardware block.
+
+config CLK_MTK_MT7623
+	bool "MediaTek MT7623 GCC"
+	select CLK_MTK
+	default y if CONFIG_TARGET_MT7623
+	help
+	Say Y here to enable support for the Global Clock Controller
+	on the MediaTek MT7623 SoC. This driver supports the clocks
+	and resets exposed by the GCC hardware block.
+
+config CLK_MTK_MT7629
+	bool "MediaTek MT7629 GCC"
+	select CLK_MTK
+	default y if CONFIG_TARGET_MT7629
+	help
+	Say Y here to enable support for the Global Clock Controller
+	on the MediaTek MT7629 SoC. This driver supports the clocks
+	and resets exposed by the GCC hardware block.
+
+config CLK_MTK_MT7986
+	bool "MediaTek MT7986 GCC"
+	select CLK_MTK
+	default y if CONFIG_TARGET_MT7986
+	help
+	Say Y here to enable support for the Global Clock Controller
+	on the MediaTek MT7986 SoC. This driver supports the clocks
+	and resets exposed by the GCC hardware block.
+
+config CLK_MTK_MT7981
+	bool "MediaTek MT7981 GCC"
+	select CLK_MTK
+	default y if CONFIG_TARGET_MT7981
+	help
+	Say Y here to enable support for the Global Clock Controller
+	on the MediaTek MT7981 SoC. This driver supports the clocks
+	and resets exposed by the GCC hardware block.
+
+config CLK_MTK_MT7988
+	bool "MediaTek MT7988 GCC"
+	select CLK_MTK
+	default y if CONFIG_TARGET_MT7988
+	help
+	Say Y here to enable support for the Global Clock Controller
+	on the MediaTek MT7988 SoC. This driver supports the clocks
+	and resets exposed by the GCC hardware block.
+
+config CLK_MTK_MT7987
+	bool "MediaTek MT7987 GCC"
+	select CLK_MTK
+	default y if CONFIG_TARGET_MT7987
+	help
+	Say Y here to enable support for the Global Clock Controller
+	on the MediaTek MT7987 SoC. This driver supports the clocks
+	and resets exposed by the GCC hardware block.
+
+config CLK_MTK_MT8183
+	bool "MediaTek MT8183 GCC"
+	select CLK_MTK
+	default y if CONFIG_TARGET_MT8183 || ARCH_COREBOOT
+	help
+	Say Y here to enable support for the Global Clock Controller
+	on the MediaTek MT8183 SoC. This driver supports the clocks
+	and resets exposed by the GCC hardware block.
+
+config CLK_MTK_MT8365
+	bool "MediaTek MT8365 GCC"
+	select CLK_MTK
+	default y if CONFIG_TARGET_MT8365
+	help
+	Say Y here to enable support for the Global Clock Controller
+	on the MediaTek MT8365 SoC. This driver supports the clocks
+	and resets exposed by the GCC hardware block.
+
+config CLK_MTK_MT8512
+	bool "MediaTek MT8512 GCC"
+	select CLK_MTK
+	default y if CONFIG_TARGET_MT8512
+	help
+	Say Y here to enable support for the Global Clock Controller
+	on the MediaTek MT8512 SoC. This driver supports the clocks
+	and resets exposed by the GCC hardware block.
+
+config CLK_MTK_MT8516
+	bool "MediaTek MT8516 GCC"
+	select CLK_MTK
+	default y if CONFIG_TARGET_MT8516
+	help
+	Say Y here to enable support for the Global Clock Controller
+	on the MediaTek MT8516 SoC. This driver supports the clocks
+	and resets exposed by the GCC hardware block.
+
+config CLK_MTK_MT8518
+	bool "MediaTek MT8518 GCC"
+	select CLK_MTK
+	default y if CONFIG_TARGET_MT8518
+	help
+	Say Y here to enable support for the Global Clock Controller
+	on the MediaTek MT8518 SoC. This driver supports the clocks
+	and resets exposed by the GCC hardware block.
+
+endmenu
+endif
