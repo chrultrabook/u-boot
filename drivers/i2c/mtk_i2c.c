@@ -835,6 +835,30 @@ static const struct mtk_i2c_soc_data mt8183_soc_data = {
 	.ltiming_adjust = 0,
 };
 
+static const struct mtk_i2c_soc_data mt8186_soc_data = {
+	.regs = mt_i2c_regs_v3,
+	.dma_sync = 0,
+	.ltiming_adjust = 1,
+};
+
+static const struct mtk_i2c_soc_data mt8188_soc_data = {
+	.regs = mt_i2c_regs_v3,
+	.dma_sync = 0,
+	.ltiming_adjust = 1,
+};
+
+static const struct mtk_i2c_soc_data mt8192_soc_data = {
+	.regs = mt_i2c_regs_v3,
+	.dma_sync = 0,
+	.ltiming_adjust = 1,
+};
+
+static const struct mtk_i2c_soc_data mt8195_soc_data = {
+	.regs = mt_i2c_regs_v3,
+	.dma_sync = 0,
+	.ltiming_adjust = 1,
+};
+
 static const struct mtk_i2c_soc_data mt8518_soc_data = {
 	.regs = mt_i2c_regs_v1,
 	.dma_sync = 0,
@@ -872,6 +896,18 @@ static const struct udevice_id mtk_i2c_ids[] = {
 	}, {
 		.compatible = "mediatek,mt8183-i2c",
 		.data = (ulong)&mt8183_soc_data,
+	}, {
+		.compatible = "mediatek,mt8186-i2c",
+		.data = (ulong)&mt8186_soc_data,
+	}, {
+		.compatible = "mediatek,mt8188-i2c",
+		.data = (ulong)&mt8188_soc_data,
+	}, {
+		.compatible = "mediatek,mt8192-i2c",
+		.data = (ulong)&mt8192_soc_data,
+	}, {
+		.compatible = "mediatek,mt8195-i2c",
+		.data = (ulong)&mt8195_soc_data,
 	}, {
 		.compatible = "mediatek,mt8512-i2c",
 		.data = (ulong)&mt8512_soc_data,
