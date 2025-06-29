@@ -4,7 +4,6 @@
  * Author: Chris-qj Chen <chris-qj.chen@mediatek.com>
  */
 
-#include <common.h>
 #include <dm.h>
 #include <asm/io.h>
 #include <dt-bindings/clock/mt8195-clk.h>
@@ -39,19 +38,14 @@ static const struct mtk_gate imp_iic_wrap_w_clks[] = {
 extern const struct mtk_clk_tree mt8195_clk_tree;
 static int mt8195_imp_iic_wrap_probe(struct udevice *dev)
 {
-	return mtk_common_clk_gate_init(dev, &mt8195_clk_tree, dev->driver_data);
+	return mtk_common_clk_gate_init(dev, &mt8195_clk_tree, imp_iic_wrap_s_clks);
+	return mtk_common_clk_gate_init(dev, &mt8195_clk_tree, imp_iic_wrap_w_clks);
 }
 
 static const struct udevice_id of_match_clk_mt8195_imp_iic_wrap[] = {
-	{
-		.compatible = "mediatek,mt8195-imp_iic_wrap_s",
-		.data = &imp_iic_wrap_s_clks,
-	}, {
-		.compatible = "mediatek,mt8195-imp_iic_wrap_w",
-		.data = &imp_iic_wrap_w_clks,
-	}, {
-		/* sentinel */
-	}
+	{ .compatible = "mediatek,mt8195-imp_iic_wrap_s", },
+	{ .compatible = "mediatek,mt8195-imp_iic_wrap_w", }, 
+	{ }
 };
 
 U_BOOT_DRIVER(mtk_clk_imp_iic_wrap) = {
