@@ -4,7 +4,6 @@
  * Author: Chris-qj Chen <chris-qj.chen@mediatek.com>
  */
 
-#include <common.h>
 #include <dm.h>
 #include <asm/io.h>
 #include <dt-bindings/clock/mt8195-clk.h>
