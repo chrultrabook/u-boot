@@ -12,6 +12,7 @@ obj-$(CONFIG_CLK_MTK_MT7988) += clk-mt7988.o
 obj-$(CONFIG_CLK_MTK_MT7987) += clk-mt7987.o
 obj-$(CONFIG_CLK_MTK_MT8183) += clk-mt8183.o
 obj-$(CONFIG_CLK_MTK_MT8186) += clk-mt8186.o
+obj-$(CONFIG_CLK_MTK_MT8192) += clk-mt8192.o clk-mt8192-msdc.o
 obj-$(CONFIG_CLK_MTK_MT8195) += clk-mt8195.o clk-mt8195-apmixedsys.o \
 			       clk-mt8195-topckgen.o clk-mt8195-infra_ao.o \
 			       clk-mt8195-imp_iic_wrap.o clk-mt8195-peri_ao.o \
