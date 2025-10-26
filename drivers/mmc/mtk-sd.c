@@ -1691,7 +1691,7 @@ static int msdc_drv_probe(struct udevice *dev)
 	pinctrl_select_state(dev, "default");
 #endif
 
-	msdc_ungate_clock(host);
+	//msdc_ungate_clock(host);
 	msdc_init_hw(host);
 
 	upriv->mmc = &plat->mmc;
