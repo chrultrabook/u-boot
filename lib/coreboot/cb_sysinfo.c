@@ -8,6 +8,7 @@
 
 #include <cb_sysinfo.h>
 #include <coreboot_timestamp.h>
+#include <env.h>
 #include <fdt_support.h>
 #include <init.h>
 #include <mapmem.h>
